@@ -25,21 +25,25 @@ function dataLoaded(err,rows) {
 
     //total number of trips in 2012
     tripsByYear.filter(2012);
+    console.log('tripsByYear.top(Infinity).length');
     console.log(tripsByYear.top(Infinity).length);
 
     //total number of trips in 2012 AND taken by male, registered users
     tripsByGender.filter("Male");
+    console.log('tripsByGender.top(Infinity).length');
     console.log(tripsByGender.top(Infinity).length);
 
     //total number of trips in 2012, by all users (male, female, or unknown), starting from Northeastern (station id 5). Note that when you apply a new filter on column/dimension A, the existing filters are columns B, C, D... etc. are still active
     tripsByGender.filter(null);
     tripsByStartStation.filter("5");
+    console.log('tripsByStartStation.top(Infinity).length');
     console.log(tripsByStartStation.top(Infinity).length);
 
     //top 50 trips, in all time, by all users, regardless of starting point, in terms of trip duration. Log the array of these trips in console.
     tripsByYear.filter(null);
     tripsByGender.filter(null);
     tripsByStartStation.filter(null);
+    console.log('tripsByDuration.top(50)');
     console.log(tripsByDuration.top(50));
 
     //Afterwards, clear all filters.
@@ -56,6 +60,7 @@ function dataLoaded(err,rows) {
     });
 
     //Console log these groups using group.all()
+    console.log('tripsByAgeGroup.all()');
     console.log(tripsByAgeGroup.all());
 }
 function parse(d){
